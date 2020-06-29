@@ -4,8 +4,8 @@ import com.ss.testtask.controller.DictionaryController;
 import com.ss.testtask.model.Dictionary;
 import com.ss.testtask.repository.DictionaryRepository;
 import org.apache.commons.lang3.StringUtils;
-import org.jsoup.Jsoup;
 import org.apache.log4j.Logger;
+import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
