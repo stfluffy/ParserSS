@@ -47,14 +47,14 @@ public class DictionaryController {
             Jsoup.connect(url);
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
-            return new ResponseEntity<>( new ServiceResult<>("addDictionary: " + e.getMessage()),
+            return new ResponseEntity<>( new ServiceResult<>("addDictionary." + e.getMessage()),
                     HttpStatus.BAD_REQUEST);
         }
 
         serviceResult = parser.parsePage(url);
 
         if (serviceResult.hasError()) {
-            return new ResponseEntity<>(new ServiceResult<>(serviceResult.getError()),
+            return new ResponseEntity<>(new ServiceResult<>("addDictionary." + serviceResult.getError()),
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
@@ -106,7 +106,7 @@ public class DictionaryController {
 
         try {
             dictionaryRepository.deleteById(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
             return new ResponseEntity<>( new ServiceResult<>("notFoundId:" + id), HttpStatus.NOT_FOUND);

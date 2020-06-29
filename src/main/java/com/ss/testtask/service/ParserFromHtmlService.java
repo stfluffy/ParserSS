@@ -31,7 +31,7 @@ public class ParserFromHtmlService {
      * This method checks ServiceResult<> for errors received while parsing a web page,
      * as well as if a Dictionary with such URL already exists.
      *
-     * @param url cite.
+     * @param url of cite.
      * @return ServiceResult<> with exception or ServiceResult<> with a Dictionary instance.
      */
     public ServiceResult<Dictionary> parsePage(String url) {
@@ -44,12 +44,12 @@ public class ParserFromHtmlService {
 
         result = savePageToFile(url, getFileName(url));
         if(result.hasError()) {
-            return new ServiceResult<>(result.getError());
+            return new ServiceResult<>("ParserFromHtmlService." + result.getError());
         }
 
         result = getDictionary(url, getFileName(url));
         if(result.hasError()) {
-            return new ServiceResult<>(result.getError());
+            return new ServiceResult<>("ParserFromHtmlService." + result.getError());
         }
 
         return result;
@@ -60,7 +60,7 @@ public class ParserFromHtmlService {
      *      searches for unique words and counts their number.
      * Then creates a new object Dictionary and returns it.
      *
-     * @param url cite after the method getUrl().
+     * @param url of cite after the method getUrl().
      * @param fileName after the method getFileName().
      *
      *
@@ -97,7 +97,7 @@ public class ParserFromHtmlService {
             return new ServiceResult<>(dictionaryRepository.save(dictionary));
         } catch (IOException e) {
             logger.error(e.getMessage(), e);
-            return new ServiceResult<>(" getDictionary: " + e.getMessage());
+            return new ServiceResult<>("getDictionary: " + e.getMessage());
         }
     }
 
@@ -105,7 +105,7 @@ public class ParserFromHtmlService {
      * This method downloads a web page,
      *      creates a new file with the name of the site and saves it.
      *
-     * @param url cite after the method getUrl().
+     * @param url of cite after the method getUrl().
      * @param fileName after the method getFileName().
      *
      * @return ServiceResult<> with exception or empty ServiceResult<>.
@@ -123,12 +123,12 @@ public class ParserFromHtmlService {
             return new ServiceResult<>();
         } catch (IOException e) {
             logger.error(e.getMessage(), e);
-            return new ServiceResult<>(" savePageToFile: " + e.getMessage());
+            return new ServiceResult<>("savePageToFile: " + e.getMessage());
         }
     }
 
     /**
-     * @param url cite.
+     * @param url of site.
      * @return a string without a slash at the end, for the parser to work correctly.
      */
     public String getUrl(String url) {
@@ -136,7 +136,7 @@ public class ParserFromHtmlService {
     }
 
     /**
-     * @param url cite.
+     * @param url of site.
      * @return a string without '/', and a protocol for writing the file name.
      */
     private String getFileName(String url) {
