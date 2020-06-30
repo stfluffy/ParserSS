@@ -70,9 +70,6 @@ public class DictionaryController {
         if (dictionaryById.isPresent()) {
             Dictionary dictionaryToSave = dictionaryById.get();
 
-            if (!dictionary.getUrl().equals(dictionaryToSave.getUrl())) {
-                dictionaryToSave.setUrl(parser.getUrl(dictionary.getUrl()));
-            }
             if (!dictionary.getWords().isEmpty()) {
                 dictionaryToSave.setWords(dictionary.getWords());
             }

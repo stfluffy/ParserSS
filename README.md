@@ -1,6 +1,8 @@
 # SimbirSoft TestTask
 
-**About:** This is a rest api server for parsing web pages. The server stores dictionaries with unique words and links to the site.
+This is a rest api server for parsing web pages. The server stores dictionaries with unique words and url site.
+**P.S** For an example of a ready site parsing, you can send a |GET|request 
+by URL:  http://localhost:8080/api/parser/1 or URL: http://localhost:8080/api/parser/2  
 
 ## Stack:
 
@@ -12,7 +14,7 @@
 
 ## REST API
 
-### Find dictionary by id
+### Get dictionary by id:
 
 **GET  request:** This query returns a dictionary instance by id:
 	
@@ -20,12 +22,13 @@
 
 - **{id}** -  instance id.
 
-**ERROR:**
+**Error:**
 
 	"error": "notFoundById: {id}". 
 	
-**EXAMPLE:** 
+**Example:** 
 > **Try:** Send a |GET| request for url:	http://localhost8080/api/parser/1
+
 >**Result:**
 
 	{
@@ -50,30 +53,32 @@
 
 	|POST| URL: http://localhost8080/api/parser
 	
-	RequestBody:
-				{
-					"url": "http://{some website}"
-				}
+>**RequestBody:**
+>
+	{
+		"url": "http://{some website}"
+	}
 
 > **NOTE:  URL should be only in this format:** 
-> **- http:// {some website}**,
-> **- https:// {some website}**.
+> - **http:// {some website}**,
+> - **https:// {some website}**.
 
 
-**ERROR:**
+**Errors:**
 
 	"error": "addDictionary: {exception message}"
 	"error": "addDictionary.ParserFromHtmlService.getDictionary: {exception message}"
 	"error": "addDictionary.ParserFromHtmlService.savePageToFile: {exception message}"
 	
 
-**EXAMPLE:** 
+**Example:** 
 > **Try:** Send a |POST|request for url:	http://localhost8080/api/parser  and
 
-	RequestBody:
-				{
-					"url": "https://www.simbirsoft.com/en/"
-				}
+>**RequestBody:**
+	
+	{
+		"url": "https://www.simbirsoft.com/en/"
+	}
 
 
 >**Result:**
@@ -93,6 +98,63 @@
 	}
 
 ---
+### Update dictionary
+
+**PUT request:** This request takes request body and returns an instance of the update entity:
+
+	|POST| URL: http://localhost8080/api/parser/1
+	
+	
+>**RequestBody:**
+	
+	{
+		"words": {
+				"modified word":  "modified cout words",
+				"modified word":  "modified cout words",
+			 }
+	}
+
+> **NOTE:  You can only change words in the dictionary**.
+
+**Error:** 
+
+	"error": "notFoundId: {id}"
+	
+
+**Example:**  
+> **Try:** Send a |PUT|request for url:	http://localhost8080/api/parser/1  and
+RequestBody:
+
+	{
+		"words": {
+				"создаём":  "1",
+				"программное":  "1",
+				"обеспечение":  "2",
+				"для":  "16",
+				"вашего":  "1",
+				"бизнеса":  "3"
+			}
+	}
+
+
+>**Result:**
+
+	{
+		"result":  {
+			"id":  1,
+			"url":  "https://www.simbirsoft.com/en",
+		    "words": {
+					"создаём":  "1",
+					"программное":  "1",
+					"обеспечение":  "2",
+					"для":  "16",
+					"вашего":  "1",
+					"бизнеса":  "3"
+			}
+		}	
+	}
+
+---
 
 ### Delete dictionary
 
@@ -102,16 +164,16 @@
 
 - **{id}** -  instance id.
 
-**ERROR:**
+**Error:**
 
 	"error": "notFoundId: {id}"
 	
 
-**EXAMPLE:** 
+**Example:** 
 > **Try:**  Send a |DELETE|request for url:	http://localhost8080/api/parser/1 
 
 
->**Result:** HTTP status 204
+>**Result:** HTTP status 200
 
 
 ---

@@ -8,7 +8,7 @@ import java.io.IOException;
 @SpringBootApplication
 public class TesttaskApplication {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		SpringApplication.run(TesttaskApplication.class, args);
 	}
 
