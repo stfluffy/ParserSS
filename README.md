@@ -1,9 +1,17 @@
 # SimbirSoft TestTask
 
 This is a rest api server for parsing web pages. The server stores dictionaries with unique words and url site.
-**P.S** For an example of a ready site parsing, you can send a |GET|request 
-by URL:  http://localhost:8080/api/parser/1 or URL: http://localhost:8080/api/parser/2  
 
+
+**P.S** For an example of a ready site parsing, you can send a Get request by URL:  http://localhost:8080/api/parser/1 or URL: http://localhost:8080/api/parser/2 
+
+## Installation:
+
+	
+**Open a terminal and enter commands:**
+
+	 1. git clone https://github.com/stfluffy/ParserSS.git
+	 2. mvn spring-boot:run
 ## Stack:
 
  - Java 1.8
