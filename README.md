@@ -1,14 +1,14 @@
 # SimbirSoft TestTask
 
-This is a rest api server for parsing web pages. The server stores dictionaries with unique words and url site.
+This is a rest api server for parsing web pages. The server stores dictionaries with unique words and site url.
 
 
-**P.S** For an example of a ready site parsing, you can send a Get request by URL:  http://localhost:8080/api/parser/1 or URL: http://localhost:8080/api/parser/2 
+**P.S** For an example of a site parsing, you can send Get request by URL:  http://localhost:8080/api/parser/1 or URL: http://localhost:8080/api/parser/2 
 
 ## Installation:
 
 	
-**Open a terminal and enter commands:**
+**Open terminal and enter commands:**
 
 	 1. git clone https://github.com/stfluffy/ParserSS.git
 	 2. mvn spring-boot:run
@@ -24,7 +24,7 @@ This is a rest api server for parsing web pages. The server stores dictionaries 
 
 ### Get dictionary by id:
 
-**GET  request:** This query returns a dictionary instance by id:
+**GET  request:** This query returns dictionary instance by id:
 	
 	 |GET| URL: http://localhost8080/api/parser/{id}
 
@@ -35,7 +35,7 @@ This is a rest api server for parsing web pages. The server stores dictionaries 
 	"error": "notFoundById: {id}". 
 	
 **Example:** 
-> **Try:** Send a |GET| request for url:	http://localhost8080/api/parser/1
+> **Try:** Send |GET| request for url:	http://localhost8080/api/parser/1
 
 >**Result:**
 
@@ -67,7 +67,7 @@ This is a rest api server for parsing web pages. The server stores dictionaries 
 		"url": "http://{some website}"
 	}
 
-> **NOTE:  URL should be only in this format:** 
+> **NOTE:  URL should only be this format:** 
 > - **http:// {some website}**,
 > - **https:// {some website}**.
 
@@ -80,7 +80,7 @@ This is a rest api server for parsing web pages. The server stores dictionaries 
 	
 
 **Example:** 
-> **Try:** Send a |POST|request for url:	http://localhost8080/api/parser  and
+> **Try:** Send |POST|request for url:	http://localhost8080/api/parser and
 
 >**RequestBody:**
 	
@@ -130,7 +130,7 @@ This is a rest api server for parsing web pages. The server stores dictionaries 
 	
 
 **Example:**  
-> **Try:** Send a |PUT|request for url:	http://localhost8080/api/parser/1  and
+> **Try:** Send |PUT|request for url: http://localhost8080/api/parser/1  and
 RequestBody:
 
 	{
@@ -178,7 +178,7 @@ RequestBody:
 	
 
 **Example:** 
-> **Try:**  Send a |DELETE|request for url:	http://localhost8080/api/parser/1 
+> **Try:**  Send |DELETE|request for url: http://localhost8080/api/parser/1 
 
 
 >**Result:** HTTP status 200
