@@ -3,7 +3,7 @@
 This is a rest api server for parsing web pages. The server stores dictionaries with unique words and site url.
 
 
-**P.S** For an example of a site parsing, you can send Get request by URL:  http://localhost:8080/api/parser/1w 
+**P.S** For an example of a site parsing, you can send Get request by URL:  http://localhost:8080/api/parser/1 
 
 ## Installation:
 
