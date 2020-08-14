@@ -1,33 +1,26 @@
 package com.ss.testtask.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.Builder;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.util.HashMap;
 
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class DictionaryDto {
+
+    private Long id;
     private String url;
     private HashMap<String, String> words;
+    @JsonIgnore
+    private String fileName;
 
-    public DictionaryDto() {
-
-    }
-
-    public DictionaryDto(String url, HashMap<String, String> words) {
-        this.url = url;
-        this.words = words;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public HashMap<String, String> getWords() {
-        return words;
-    }
-
-    public void setWords(HashMap<String, String> words) {
-        this.words = words;
-    }
 }

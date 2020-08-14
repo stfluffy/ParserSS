@@ -16,11 +16,15 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<org.jsoup.version>1.8.3</org.jsoup.version>
+		<graphql-spring-boot-starter.version>5.0.2</graphql-spring-boot-starter.version>
+		<org.hsqldb.version>2.4.1</org.hsqldb.version>
+		<commons-lang3.version>3.10</commons-lang3.version>
+		<org.modelmapper.version>2.3.2</org.modelmapper.version>
+		<org.projectlombok.version>1.18.12</org.projectlombok.version>
 	</properties>
 
 	<dependencies>
-
-					<!--	Spring		-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -31,28 +35,16 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-					<!--	Spring/		-->
-
-
-					<!--	Parser		-->
 		<dependency>
 			<groupId>org.jsoup</groupId>
 			<artifactId>jsoup</artifactId>
-			<version>1.8.3</version>
+			<version>${org.jsoup.version}</version>
 		</dependency>
-					<!--	Parser/		-->
-
-
-					<!--	GraphQl		-->
 		<dependency>
 			<groupId>com.graphql-java</groupId>
 			<artifactId>graphql-spring-boot-starter</artifactId>
-			<version>5.0.2</version>
+			<version>${graphql-spring-boot-starter.version}</version>
 		</dependency>
-					<!--	GraphQl/		-->
-
-
-					<!--	Data Base 	-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -60,28 +52,25 @@
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
-			<version>2.4.1</version>
+			<version>${org.hsqldb.version}</version>
 		</dependency>
-					<!--	Data Base/ 	-->
-
-
-					<!--	Other		-->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.10</version>
+			<version>${commons-lang3.version}</version>
 		</dependency>
-					<!--	Logger		-->
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>${org.modelmapper.version}</version>
 		</dependency>
-					<!--	Logger/		-->
-					<!--	Other/		-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${org.projectlombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
 
-
-					<!--	   Test 	-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -93,8 +82,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-					<!--	   Test/ 	-->
-
 	</dependencies>
 
 
